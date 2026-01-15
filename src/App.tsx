@@ -1,3 +1,4 @@
+import { Hero } from "./components/Hero";
 import { NavBar } from "./components/NavBar";
 
 export const App = () => {
@@ -5,6 +6,7 @@ export const App = () => {
     <div>
       <main>
         <NavBar/>
+        <Hero/>
       </main>
     </div>
   );
