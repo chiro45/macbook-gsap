@@ -8,7 +8,13 @@ Source: https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b3031
 Title: macbook pro M3 16 inch 2024
 */
 
-import { Mesh, MeshStandardMaterial, AnimationClip, Color } from "three";
+import {
+  Mesh,
+  MeshStandardMaterial,
+  AnimationClip,
+  Color,
+  SRGBColorSpace,
+} from "three";
 import { useGLTF, useTexture } from "@react-three/drei";
 import type { GLTF } from "three-stdlib";
 import { useEffect, type JSX } from "react";
@@ -69,7 +75,8 @@ export default function MacbookModel16(props: JSX.IntrinsicElements["group"]) {
   ) as unknown as GLTFResult;
 
   const texture = useTexture("/screen.png");
-
+  texture.colorSpace = SRGBColorSpace;
+  texture.needsUpdate = true;
   useEffect(() => {
     scene.traverse((child) => {
       if (child instanceof Mesh) {
@@ -166,11 +173,7 @@ export default function MacbookModel16(props: JSX.IntrinsicElements["group"]) {
         material={materials.JvMFZolVCdpPqjj}
         rotation={[Math.PI / 2, 0, 0]}
       />
-      <mesh
-        geometry={nodes.Object_123.geometry}
-        material={materials.sfCQkHOWyrsLmor}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
+      <mesh geometry={nodes.Object_123.geometry} rotation={[Math.PI / 2, 0, 0]}>
         <meshBasicMaterial map={texture} />
       </mesh>
       <mesh
