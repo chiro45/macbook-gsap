@@ -1,29 +1,31 @@
 import { PresentationControls } from "@react-three/drei";
-import { useRef, type FC } from "react";
+import { useRef, type FC, useEffect } from "react";
 import MacbookModel16 from "../models/Macbook-16";
 import MacbookModel14 from "../models/Macbook-14";
-import { Group } from "three";
+import { Group, Mesh } from "three";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+
 type Props = {
   scale: number;
   isMobile: boolean;
 };
-const ANIMATION_DURATION = 1;
-const OFFSET_DISTANCE = 5;
 
-const fadeMeshes = (group: any, opacity: number) => {
+const ANIMATION_DURATION = 1;
+const OFFSET_DISTANCE = 8;
+
+const fadeMeshes = (group: Group | null, opacity: number) => {
   if (!group) return;
 
-  group.traverse((child: any) => {
-    if (child.isMesh) {
-      child.material.trasparent = true;
+  group.traverse((child) => {
+    if (child instanceof Mesh) {
+      child.material.transparent = true;
       gsap.to(child.material, { opacity, duration: ANIMATION_DURATION });
     }
   });
 };
 
-const moveGroup = (group: any, x: number) => {
+const moveGroup = (group: Group | null, x: number) => {
   if (!group) return;
   gsap.to(group.position, { x, duration: ANIMATION_DURATION });
 };
@@ -37,6 +39,39 @@ export const ModelSwitcher: FC<Props> = ({ scale, isMobile }) => {
 
   const showLargeMacbook =
     scale === SCALE_LARGE_DESKTOP || scale === SCALE_LARGE_MOBILE;
+
+  // Establecer posiciones iniciales sin animación
+  useEffect(() => {
+    if (largeMacbookRef.current && smallMacbookRef.current) {
+      if (showLargeMacbook) {
+        largeMacbookRef.current.position.x = 0;
+        smallMacbookRef.current.position.x = -OFFSET_DISTANCE;
+        smallMacbookRef.current.traverse((child) => {
+          if (child instanceof Mesh) {
+            child.material.opacity = 0;
+          }
+        });
+        largeMacbookRef.current.traverse((child) => {
+          if (child instanceof Mesh) {
+            child.material.opacity = 1;
+          }
+        });
+      } else {
+        largeMacbookRef.current.position.x = OFFSET_DISTANCE;
+        smallMacbookRef.current.position.x = 0;
+        smallMacbookRef.current.traverse((child) => {
+          if (child instanceof Mesh) {
+            child.material.opacity = 1;
+          }
+        });
+        largeMacbookRef.current.traverse((child) => {
+          if (child instanceof Mesh) {
+            child.material.opacity = 0;
+          }
+        });
+      }
+    }
+  }, []); // Solo en mount
 
   useGSAP(() => {
     if (showLargeMacbook) {
@@ -58,7 +93,7 @@ export const ModelSwitcher: FC<Props> = ({ scale, isMobile }) => {
     snap: true,
     speed: 1,
     zoom: 1,
-    azimuth: [-Infinity, Infinity] as [number, number],
+    azimuth: [0, Math.PI * 2] as [number, number],
     config: { mass: 1, tension: 0, friction: 26 },
   };
 
