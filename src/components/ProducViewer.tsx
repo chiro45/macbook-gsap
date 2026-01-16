@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useMacbookStore } from "../store";
 import { Canvas } from "@react-three/fiber";
-import { StudioLigths } from "./StudioLigths";
+import { StudioLigths } from "./three/StudioLigths";
 import { ModelSwitcher } from "./three/ModelSwitcher";
 import { useMediaQuery } from "react-responsive";
 export const ProducViewer = () => {

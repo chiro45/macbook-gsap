@@ -58,7 +58,7 @@ export const ModelSwitcher: FC<Props> = ({ scale, isMobile }) => {
     snap: true,
     speed: 1,
     zoom: 1,
-    azimuth: [-10000, 10000] as [number, number],
+    azimuth: [-Infinity, Infinity] as [number, number],
     config: { mass: 1, tension: 0, friction: 26 },
   };
 
