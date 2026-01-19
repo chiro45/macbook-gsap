@@ -13,7 +13,6 @@ import type { GLTF } from "three-stdlib";
 import { useEffect, type JSX } from "react";
 import { Mesh, MeshStandardMaterial, AnimationClip, Color } from "three";
 import { useMacbookStore } from "../../store";
-import { texture } from "three/tsl";
 import { noChangeParts } from "../../constants";
 
 type GLTFResult = GLTF & {
@@ -70,6 +69,7 @@ export function ModelMacbook(props: JSX.IntrinsicElements["group"]) {
   ) as unknown as GLTFResult;
 
   const screen = useVideoTexture(texture);
+  
   useEffect(() => {
     scene.traverse((child) => {
       if (child instanceof Mesh) {
@@ -79,6 +79,7 @@ export function ModelMacbook(props: JSX.IntrinsicElements["group"]) {
       }
     });
   }, [color, scene]);
+
   return (
     <group {...props} dispose={null}>
       <mesh
