@@ -3,11 +3,9 @@ import { useMacbookStore } from "../store";
 import { Canvas } from "@react-three/fiber";
 import { StudioLigths } from "./three/StudioLigths";
 import { ModelSwitcher } from "./three/ModelSwitcher";
-import { useMediaQuery } from "react-responsive";
 export const ProducViewer = () => {
-  const { color, scale, setColor, setScale } = useMacbookStore();
+  const { color, scale, setColor, setScale, isMobile } = useMacbookStore();
 
-  const isMobile = useMediaQuery({ query: "(max-width:1024px)" });
   return (
     <section id="product-viewer">
       <h2>Take a closer look.</h2>

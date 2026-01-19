@@ -8,8 +8,18 @@ import { Performance } from "./components/Performance";
 import { Features } from "./components/Features";
 import { HightLights } from "./components/HighLights";
 import { Footer } from "./components/Footer";
+import { useMediaQuery } from "react-responsive";
+import { useMacbookStore } from "./store";
+import { useEffect } from "react";
 gsap.registerPlugin(ScrollTrigger);
 export const App = () => {
+  const setIsMobile = useMacbookStore((state) => state.setIsMobile);
+  const isMobile = useMediaQuery({ query: "(max-width:1024px)" });
+
+  useEffect(() => {
+    setIsMobile(isMobile);
+  }, [isMobile, setIsMobile]);
+
   return (
     <div>
       <main>

@@ -1,15 +1,15 @@
-import { useMediaQuery } from "react-responsive";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useMacbookStore } from "../store";
 
 export const HightLights = () => {
-  const isMobile = useMediaQuery({ query: "(max-width:1024px)" });
+  const isMobile = useMacbookStore((state) => state.isMobile);
 
   useGSAP(() => {
     gsap.to([".left-column", ".right-column"], {
       scrollTrigger: {
         trigger: "#highlights",
-        start: isMobile ? "bottom nottom" : "top center",
+        start: isMobile ? "bottom bottom" : "top center",
       },
       y: 0,
       opacity: 1,

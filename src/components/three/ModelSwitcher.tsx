@@ -2,9 +2,10 @@ import { PresentationControls } from "@react-three/drei";
 import { useRef, type FC, useEffect } from "react";
 import MacbookModel16 from "../models/Macbook-16";
 import MacbookModel14 from "../models/Macbook-14";
-import { Group, Mesh } from "three";
+import { type Group, Mesh } from "three";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { PI } from "../../constants";
 
 type Props = {
   scale: number;
@@ -71,7 +72,7 @@ export const ModelSwitcher: FC<Props> = ({ scale, isMobile }) => {
         });
       }
     }
-  }, []); // Solo en mount
+  }, [showLargeMacbook]); // Solo en mount
 
   useGSAP(() => {
     if (showLargeMacbook) {
@@ -93,7 +94,7 @@ export const ModelSwitcher: FC<Props> = ({ scale, isMobile }) => {
     snap: true,
     speed: 1,
     zoom: 1,
-    azimuth: [0, Math.PI * 2] as [number, number],
+    azimuth: [0, PI * 2] as [number, number],
     config: { mass: 1, tension: 0, friction: 26 },
   };
 

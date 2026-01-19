@@ -143,3 +143,5 @@ export const footerLinks = [
   { label: "Legal", link: "#" },
   { label: "Site Map", link: "#" },
 ];
+
+export const PI = Math.PI;

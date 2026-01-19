@@ -7,6 +7,9 @@ type IUseMacbookStore = {
   setScale: (scale: number) => void;
   texture: string;
   setTexture: (texture: string) => void;
+  isMobile: boolean;
+  setIsMobile: (isMobile: boolean) => void;
+  reset: () => void;
 };
 
 export const useMacbookStore = create<IUseMacbookStore>((set) => ({
@@ -18,6 +21,13 @@ export const useMacbookStore = create<IUseMacbookStore>((set) => ({
   texture: "/videos/feature-1.mp4",
   setTexture: (texture: string) => set({ texture }),
 
+  isMobile: false,
+  setIsMobile: (isMobile: boolean) => set({ isMobile }),
+
   reset: () =>
-    set({ color: "#2e2c2e", scale: 0.08, texture: "/videos/feature-1.mp4" }),
+    set({
+      color: "#2e2c2e",
+      scale: 0.08,
+      texture: "/videos/feature-1.mp4",
+    }),
 }));

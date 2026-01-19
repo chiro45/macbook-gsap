@@ -1,12 +1,12 @@
 import { useGSAP } from "@gsap/react";
-import { useMediaQuery } from "react-responsive";
 import gsap from "gsap";
+import { useMacbookStore } from "../store";
 
 export const ShowCase = () => {
-  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  const isMobile = useMacbookStore((state) => state.isMobile);
 
   useGSAP(() => {
-    if (!isTablet) {
+    if (!isMobile) {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: "#showcase",
@@ -23,7 +23,7 @@ export const ShowCase = () => {
         })
         .to(".content", { opacity: 1, y: 0, ease: "power1.in" });
     }
-  }, [isTablet]);
+  }, [isMobile]);
   return (
     <section id="showcase">
       <div className="media">

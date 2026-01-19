@@ -5,7 +5,7 @@ import {
   performanceImages,
   performanceImgPositions,
 } from "../constants/index.js";
-import { useMediaQuery } from "react-responsive";
+import { useMacbookStore } from "../store";
 
 interface PerformanceImgPosition {
   id: string;
@@ -16,7 +16,7 @@ interface PerformanceImgPosition {
 }
 
 export const Performance = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
+  const isMobile = useMacbookStore((state) => state.isMobile);
   const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(

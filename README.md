@@ -1,144 +1,140 @@
 # MacBook Pro Landing Page
 
-Una landing page interactiva y moderna para presentar la línea de MacBook Pro con modelos 3D renderizados en tiempo real usando Three.js.
+An interactive and modern landing page to showcase the MacBook Pro line with real-time rendered 3D models using Three.js.
 
-## 📋 Descripción del Proyecto
+## 📋 Project Description
 
-Este proyecto es una aplicación web de una sola página que presenta la experiencia de un landing page de MacBook Pro. Cuenta con:
+This project is a single-page web application that presents a MacBook Pro landing page experience. It features:
 
-- Modelos 3D interactivos de MacBook (14" y 16")
-- Animaciones suaves con GSAP
-- Interfaz responsive
-- Sistema de navegación intuitivo
-- Visualización de productos con controles 3D
+- Interactive 3D models of MacBook (14" and 16")
+- Smooth animations with GSAP
+- Responsive interface
+- Intuitive navigation system
+- Product visualization with 3D controls
 
-## 🛠️ Tecnologías
+## 🛠️ Technologies
 
 ### Core
 
-- **React** (v19.2.0) - Framework UI
-- **TypeScript** (v5.9.3) - Type safety
-- **Vite** (v7.2.4) - Build tool y dev server con HMR
+- **React** (^19.2.0) - UI Framework
+- **TypeScript** (~5.9.3) - Type safety
+- **Vite** (^7.2.4) - Build tool and dev server with HMR
 
 ### 3D & Graphics
 
-- **Three.js** (v0.182.0) - Engine 3D
-- **@react-three/fiber** (v9.5.0) - React renderer para Three.js
-- **@react-three/drei** (v10.7.7) - Utilidades y helpers para Three.js
-- **three-stdlib** (v2.36.1) - Utilidades estándar de Three.js
+- **Three.js** (^0.182.0) - 3D Engine
+- **@react-three/fiber** (^9.5.0) - React renderer for Three.js
+- **@react-three/drei** (^10.7.7) - Utilities and helpers for Three.js
+- **three-stdlib** (^2.36.1) - Standard utilities for Three.js
 
-### Animaciones & Estilos
+### Animations & Styles
 
-- **GSAP** (v3.14.2) - Librería de animaciones
-- **@gsap/react** (v2.1.2) - Plugin de React para GSAP
-- **Tailwind CSS** (v4.1.18) - Framework CSS utilitario
-- **@tailwindcss/vite** (v4.1.18) - Integración Tailwind con Vite
+- **GSAP** (^3.14.2) - Animation library
+- **@gsap/react** (^2.1.2) - React plugin for GSAP
+- **Tailwind CSS** (^4.1.18) - Utility-first CSS framework
+- **@tailwindcss/vite** (^4.1.18) - Tailwind integration with Vite
 
-### Utilidades
+### Utilities
 
-- **Zustand** (v5.0.10) - State management
-- **react-responsive** (v10.0.1) - Media queries en React
-- **clsx** (v2.1.1) - Utilidad para class names condicionales
+- **Zustand** (^5.0.10) - State management
+- **react-responsive** (^10.0.1) - Media queries in React
+- **clsx** (^2.1.1) - Utility for conditional class names
 
-### Desarrollo
+### Development
 
-- **ESLint** (v9.39.1) - Linter de código
-- **TypeScript ESLint** (v8.46.4) - Plugin de TypeScript para ESLint
+- **ESLint** (^9.39.1) - Code linter
+- **TypeScript ESLint** (^8.46.4) - TypeScript plugin for ESLint
+- **BiomeJS** (2.3.11) - Code formatter and linter
 - **React Fast Refresh** - Hot module replacement
 
-## 📦 Instalación y Configuración
+## 📦 Installation and Setup
 
-### Requisitos
+### Requirements
 
 - Node.js 18+
-- pnpm (recomendado) o npm
+- pnpm (recommended) or npm
 
-### Pasos de Instalación
+### Installation Steps
 
-1. Clonar el repositorio:
+1. Clone the repository:
 
 ```bash
 git clone <repository-url>
 cd macbookprolanding
 ```
 
-2. Instalar dependencias:
+2. Install dependencies:
 
 ```bash
 pnpm install
 ```
 
-3. Iniciar servidor de desarrollo:
+3. Start the development server:
 
 ```bash
 pnpm dev
 ```
 
-El servidor estará disponible en `http://localhost:5173`
+The server will be available at `http://localhost:5173`
 
-## 📝 Scripts Disponibles
+## 📝 Available Scripts
 
 ```bash
-# Desarrollo
-pnpm dev        # Inicia servidor de desarrollo
+# Development
+pnpm dev        # Starts the development server
 
-# Producción
-pnpm build      # Compila TypeScript y construye para producción
-pnpm preview    # Previsualiza la build de producción localmente
+# Production
+pnpm build      # Compiles TypeScript and builds for production
+pnpm preview    # Previews the production build locally
 
-# Calidad de código
-pnpm lint       # Ejecuta ESLint en todo el proyecto
+# Code Quality
+pnpm lint       # Runs ESLint on the entire project
 ```
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 src/
-├── components/          # Componentes React
-│   ├── Hero.tsx         # Sección hero principal
-│   ├── NavBar.tsx       # Barra de navegación
-│   ├── ProducViewer.tsx # Visor de productos
-│   ├── StudioLigths.tsx # Configuración de luces 3D
-│   ├── models/          # Componentes de modelos 3D
+├── components/          # React components
+│   ├── Hero.tsx         # Main hero section
+│   ├── NavBar.tsx       # Navigation bar
+│   ├── ProducViewer.tsx # Product viewer
+│   ├── StudioLigths.tsx # 3D lights setup
+│   ├── models/          # 3D model components
 │   │   ├── Macbook.tsx
 │   │   ├── Macbook-14.tsx
 │   │   └── Macbook-16.tsx
 │   └── three/
-│       └── ModelSwitcher.tsx  # Control de cambio de modelos
-├── constants/           # Constantes de la aplicación
-├── store/              # Estado global (Zustand)
-├── App.tsx             # Componente raíz
-├── main.tsx            # Punto de entrada
-└── index.css           # Estilos globales
+│       └── ModelSwitcher.tsx  # Model switching control
+├── constants/           # Application constants
+├── store/              # Global state (Zustand)
+├── App.tsx             # Root component
+├── main.tsx            # Entry point
+└── index.css           # Global styles
 ```
 
-## ⚙️ Configuración
+## ⚙️ Configuration
 
 ### TypeScript
 
-- Configuración en `tsconfig.json` y `tsconfig.app.json`
-- Strict mode habilitado para mayor seguridad de tipos
-
-### ESLint
-
-- Configuración en `eslint.config.js`
-- Incluye reglas para React, hooks y TypeScript
+- Configuration in `tsconfig.json` and `tsconfig.app.json`
+- Strict mode enabled for better type safety
 
 ### Vite
 
-- Configuración en `vite.config.ts`
-- Integración con plugin React y Tailwind CSS
+- Configuration in `vite.config.ts`
+- Integration with React and Tailwind CSS plugins
 
 ### Tailwind CSS
 
-- Configuración integrada con Vite
-- Estilos utilitarios para diseño responsive
+- Configuration integrated with Vite
+- Utility styles for responsive design
 
-## 🚀 Características
+## 🚀 Features
 
-- ✨ Modelos 3D interactivos
-- 📱 Diseño completamente responsive
-- ⚡ Carga rápida con Vite
-- 🎨 Animaciones suaves con GSAP
-- 🔍 Type-safe con TypeScript
-- 📊 State management con Zustand
+- ✨ Interactive 3D models
+- 📱 Fully responsive design
+- ⚡ Fast loading with Vite
+- 🎨 Smooth animations with GSAP
+- 🔍 Type-safe with TypeScript
+- 📊 State management with Zustand

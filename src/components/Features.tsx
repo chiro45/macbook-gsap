@@ -1,11 +1,10 @@
 import { Canvas } from "@react-three/fiber";
 import { StudioLigths } from "./three/StudioLigths";
-import { features, featureSequence } from "../constants";
+import { features, featureSequence, PI } from "../constants";
 import clsx from "clsx";
 import { Suspense, useEffect, useRef } from "react";
 import { Html } from "@react-three/drei";
 import { ModelMacbook } from "./models/Macbook";
-import { useMediaQuery } from "react-responsive";
 import { useMacbookStore } from "../store";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -13,7 +12,7 @@ import type { Group } from "three";
 
 const ModelScroll = () => {
   const groupRef = useRef<null | Group>(null);
-  const isMobile = useMediaQuery({ query: "(max-width:1024px)" });
+  const isMobile = useMacbookStore((state) => state.isMobile);
 
   const { setTexture } = useMacbookStore();
 
@@ -29,7 +28,7 @@ const ModelScroll = () => {
         crosOrigins: "auto",
       });
     });
-  }, [groupRef]);
+  }, []);
 
   useGSAP(() => {
     //3d model rotation animation
@@ -54,7 +53,7 @@ const ModelScroll = () => {
 
     if (groupRef.current) {
       modelTimeline.to(groupRef.current.rotation, {
-        y: Math.PI * 2,
+        y: PI * 2,
         ease: "power1.inOut",
       });
     }
@@ -76,7 +75,7 @@ const ModelScroll = () => {
       <Suspense
         fallback={
           <Html>
-            <h1 className="tex-wite text-3xl uppercase"></h1>Loading...
+            <h1 className="tex-wite text-3xl uppercase">Loading...</h1>
           </Html>
         }
       >
@@ -97,7 +96,10 @@ export const Features = () => {
       </Canvas>
       <div className="absolute inset-0">
         {features.map((feature, index) => (
-          <div key={index} className={clsx("box", `box${index + 1}`, feature.styles)}>
+          <div
+            key={feature.id}
+            className={clsx("box", `box${index + 1}`, feature.styles)}
+          >
             <img src={feature.icon} alt={feature.highlight} />
             <p>
               <span className="text-white">{feature.highlight}</span>
