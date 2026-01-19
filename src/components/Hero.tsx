@@ -17,7 +17,7 @@ export const Hero = () => {
         </h1>
         <img
           className="container mx-auto w-2/3"
-          src="title.png"
+          src="/images/title.png"
           alt="Macbook Title"
         />
       </div>

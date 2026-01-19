@@ -1,7 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { StudioLigths } from "./three/StudioLigths";
 import { features, featureSequence } from "../constants";
-import { div } from "three/tsl";
 import clsx from "clsx";
 import { Suspense, useEffect, useRef } from "react";
 import { Html } from "@react-three/drei";
@@ -98,7 +97,7 @@ export const Features = () => {
       </Canvas>
       <div className="absolute inset-0">
         {features.map((feature, index) => (
-          <div className={clsx("box", `box${index + 1}`, feature.styles)}>
+          <div key={index} className={clsx("box", `box${index + 1}`, feature.styles)}>
             <img src={feature.icon} alt={feature.highlight} />
             <p>
               <span className="text-white">{feature.highlight}</span>
