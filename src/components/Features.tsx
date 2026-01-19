@@ -75,7 +75,7 @@ const ModelScroll = () => {
       <Suspense
         fallback={
           <Html>
-            <h1 className="tex-wite text-3xl uppercase">Loading...</h1>
+            <h1 className="text-white text-3xl uppercase">Loading...</h1>
           </Html>
         }
       >
