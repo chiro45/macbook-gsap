@@ -20,24 +20,9 @@ export const StudioLigths = () => {
           rotation-y={PI / 2}
         />
       </Environment>
-      <spotLight
-        position={[-2, 0, 5]}
-        angle={0.15}
-        decay={0}
-        intensity={PI * 0.2}
-      />
-      <spotLight
-        position={[0, -25, 10]}
-        angle={0.15}
-        decay={0}
-        intensity={PI * 0.2}
-      />
-      <spotLight
-        position={[0, 15, 5]}
-        angle={0.15}
-        decay={0.1}
-        intensity={PI * 1}
-      />
+      <spotLight position={[-2, 0, 5]} angle={0.15} decay={0} intensity={PI * 0.2} />
+      <spotLight position={[0, -25, 10]} angle={0.15} decay={0} intensity={PI * 0.2} />
+      <spotLight position={[0, 15, 5]} angle={0.15} decay={0.1} intensity={PI * 1} />
     </group>
   );
 };

@@ -4,7 +4,7 @@ export const NavBar = () => {
   return (
     <header>
       <nav>
-        <img src="/icons/logo.svg" about="Apple logo" />
+        <img src="/icons/logo.svg" about="Apple logo" alt="apple_logo" />
         <ul>
           {navLinks.map(({ label, route }) => (
             <li key={label}>
@@ -13,10 +13,10 @@ export const NavBar = () => {
           ))}
         </ul>
         <div className="flex-center gap-3">
-          <button>
+          <button type="button">
             <img src="/icons/search.svg" alt="Search" />
           </button>
-          <button>
+          <button type="button">
             <img src="/icons/cart.svg" alt="Cart" />
           </button>
         </div>

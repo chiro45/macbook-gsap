@@ -8,16 +8,10 @@ Source: https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b3031
 Title: macbook pro M3 16 inch 2024
 */
 
-import {
-  Mesh,
-  MeshStandardMaterial,
-  AnimationClip,
-  Color,
-  SRGBColorSpace,
-} from "three";
 import { useGLTF, useTexture } from "@react-three/drei";
+import { type JSX, useEffect } from "react";
+import { type AnimationClip, Color, Mesh, type MeshStandardMaterial, SRGBColorSpace } from "three";
 import type { GLTF } from "three-stdlib";
-import { useEffect, type JSX } from "react";
 import { noChangeParts, PI } from "../../constants";
 import { useMacbookStore } from "../../store";
 

@@ -1,10 +1,7 @@
-import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import {
-  performanceImages,
-  performanceImgPositions,
-} from "../constants/index.js";
+import { useRef } from "react";
+import { performanceImages, performanceImgPositions } from "../constants/index.js";
 import { useMacbookStore } from "../store";
 
 interface PerformanceImgPosition {
@@ -82,7 +79,7 @@ export const Performance = () => {
       <div className="wrapper">
         {performanceImages.map((item, index) => (
           <img
-            key={index}
+            key={item.id}
             src={item.src}
             className={item.id}
             alt={item.id || `Performance Image #${index + 1}`}
@@ -92,16 +89,12 @@ export const Performance = () => {
 
       <div className="content">
         <p>
-          Run graphics-intensive workflows with a responsiveness that keeps up
-          with your imagination. The M4 family of chips features a GPU with a
-          second-generation hardware-accelerated ray tracing engine that renders
-          images faster, so{" "}
-          <span className="text-white">
-            gaming feels more immersive and realistic than ever.
-          </span>{" "}
-          And Dynamic Caching optimizes fast on-chip memory to dramatically
-          increase average GPU utilization — driving a huge performance boost
-          for the most demanding pro apps and games.
+          Run graphics-intensive workflows with a responsiveness that keeps up with your
+          imagination. The M4 family of chips features a GPU with a second-generation
+          hardware-accelerated ray tracing engine that renders images faster, so{" "}
+          <span className="text-white">gaming feels more immersive and realistic than ever.</span>{" "}
+          And Dynamic Caching optimizes fast on-chip memory to dramatically increase average GPU
+          utilization — driving a huge performance boost for the most demanding pro apps and games.
         </p>
       </div>
     </section>

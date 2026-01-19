@@ -1,14 +1,14 @@
-import { Canvas } from "@react-three/fiber";
-import { StudioLigths } from "./three/StudioLigths";
-import { features, featureSequence, PI } from "../constants";
-import clsx from "clsx";
-import { Suspense, useEffect, useRef } from "react";
-import { Html } from "@react-three/drei";
-import { ModelMacbook } from "./models/Macbook";
-import { useMacbookStore } from "../store";
 import { useGSAP } from "@gsap/react";
+import { Html } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import clsx from "clsx";
 import gsap from "gsap";
+import { Suspense, useEffect, useRef } from "react";
 import type { Group } from "three";
+import { featureSequence, features, PI } from "../constants";
+import { useMacbookStore } from "../store";
+import { ModelMacbook } from "./models/Macbook";
+import { StudioLigths } from "./three/StudioLigths";
 
 const ModelScroll = () => {
   const groupRef = useRef<null | Group>(null);
@@ -96,10 +96,7 @@ export const Features = () => {
       </Canvas>
       <div className="absolute inset-0">
         {features.map((feature, index) => (
-          <div
-            key={feature.id}
-            className={clsx("box", `box${index + 1}`, feature.styles)}
-          >
+          <div key={feature.id} className={clsx("box", `box${index + 1}`, feature.styles)}>
             <img src={feature.icon} alt={feature.highlight} />
             <p>
               <span className="text-white">{feature.highlight}</span>

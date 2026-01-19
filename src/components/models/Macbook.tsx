@@ -9,11 +9,11 @@ Title: macbook pro M3 16 inch 2024
 */
 
 import { useGLTF, useVideoTexture } from "@react-three/drei";
+import { type JSX, useEffect } from "react";
+import { type AnimationClip, Color, Mesh, type MeshStandardMaterial } from "three";
 import type { GLTF } from "three-stdlib";
-import { useEffect, type JSX } from "react";
-import { Mesh, MeshStandardMaterial, AnimationClip, Color } from "three";
-import { useMacbookStore } from "../../store";
 import { noChangeParts, PI } from "../../constants";
+import { useMacbookStore } from "../../store";
 
 type GLTFResult = GLTF & {
   nodes: {

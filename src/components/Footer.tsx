@@ -6,8 +6,8 @@ export const Footer = () => {
       <footer>
         <div className="info">
           <p>
-            More ways to shop: Find an Apple Store or other retailer near you.
-            Or call 000800 040 1966.
+            More ways to shop: Find an Apple Store or other retailer near you. Or call 000800 040
+            1966.
           </p>
           <img src="/icons/logo.svg" alt="Apple logo" />
         </div>

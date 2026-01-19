@@ -1,11 +1,11 @@
-import { PresentationControls } from "@react-three/drei";
-import { useRef, type FC, useEffect } from "react";
-import MacbookModel16 from "../models/Macbook-16";
-import MacbookModel14 from "../models/Macbook-14";
-import { type Group, Mesh } from "three";
 import { useGSAP } from "@gsap/react";
+import { PresentationControls } from "@react-three/drei";
 import gsap from "gsap";
+import { type FC, useEffect, useRef } from "react";
+import { type Group, Mesh } from "three";
 import { PI } from "../../constants";
+import MacbookModel14 from "../models/Macbook-14";
+import MacbookModel16 from "../models/Macbook-16";
 
 type Props = {
   scale: number;
@@ -38,8 +38,7 @@ export const ModelSwitcher: FC<Props> = ({ scale, isMobile }) => {
   const largeMacbookRef = useRef<Group | null>(null);
   const smallMacbookRef = useRef<Group | null>(null);
 
-  const showLargeMacbook =
-    scale === SCALE_LARGE_DESKTOP || scale === SCALE_LARGE_MOBILE;
+  const showLargeMacbook = scale === SCALE_LARGE_DESKTOP || scale === SCALE_LARGE_MOBILE;
 
   // Establecer posiciones iniciales sin animación
   useEffect(() => {
