@@ -8,60 +8,60 @@ Source: https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b3031
 Title: macbook pro M3 16 inch 2024
 */
 
-import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
 import type { GLTF } from "three-stdlib";
 import type { JSX } from "react";
+import type { Mesh, MeshStandardMaterial, AnimationClip } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Object_10: THREE.Mesh;
-    Object_16: THREE.Mesh;
-    Object_20: THREE.Mesh;
-    Object_22: THREE.Mesh;
-    Object_30: THREE.Mesh;
-    Object_32: THREE.Mesh;
-    Object_34: THREE.Mesh;
-    Object_38: THREE.Mesh;
-    Object_42: THREE.Mesh;
-    Object_48: THREE.Mesh;
-    Object_54: THREE.Mesh;
-    Object_58: THREE.Mesh;
-    Object_66: THREE.Mesh;
-    Object_74: THREE.Mesh;
-    Object_82: THREE.Mesh;
-    Object_96: THREE.Mesh;
-    Object_107: THREE.Mesh;
-    Object_123: THREE.Mesh;
-    Object_127: THREE.Mesh;
+    Object_10: Mesh;
+    Object_16: Mesh;
+    Object_20: Mesh;
+    Object_22: Mesh;
+    Object_30: Mesh;
+    Object_32: Mesh;
+    Object_34: Mesh;
+    Object_38: Mesh;
+    Object_42: Mesh;
+    Object_48: Mesh;
+    Object_54: Mesh;
+    Object_58: Mesh;
+    Object_66: Mesh;
+    Object_74: Mesh;
+    Object_82: Mesh;
+    Object_96: Mesh;
+    Object_107: Mesh;
+    Object_123: Mesh;
+    Object_127: Mesh;
   };
   materials: {
-    PaletteMaterial001: THREE.MeshStandardMaterial;
-    zhGRTuGrQoJflBD: THREE.MeshStandardMaterial;
-    PaletteMaterial002: THREE.MeshStandardMaterial;
-    lmWQsEjxpsebDlK: THREE.MeshStandardMaterial;
-    LtEafgAVRolQqRw: THREE.MeshStandardMaterial;
-    iyDJFXmHelnMTbD: THREE.MeshStandardMaterial;
-    eJObPwhgFzvfaoZ: THREE.MeshStandardMaterial;
-    nDsMUuDKliqGFdU: THREE.MeshStandardMaterial;
-    CRQixVLpahJzhJc: THREE.MeshStandardMaterial;
-    YYwBgwvcyZVOOAA: THREE.MeshStandardMaterial;
-    SLGkCohDDelqXBu: THREE.MeshStandardMaterial;
-    WnHKXHhScfUbJQi: THREE.MeshStandardMaterial;
-    fNHiBfcxHUJCahl: THREE.MeshStandardMaterial;
-    LpqXZqhaGCeSzdu: THREE.MeshStandardMaterial;
-    gMtYExgrEUqPfln: THREE.MeshStandardMaterial;
-    PaletteMaterial003: THREE.MeshStandardMaterial;
-    JvMFZolVCdpPqjj: THREE.MeshStandardMaterial;
-    sfCQkHOWyrsLmor: THREE.MeshStandardMaterial;
-    ZCDwChwkbBfITSW: THREE.MeshStandardMaterial;
+    PaletteMaterial001: MeshStandardMaterial;
+    zhGRTuGrQoJflBD: MeshStandardMaterial;
+    PaletteMaterial002: MeshStandardMaterial;
+    lmWQsEjxpsebDlK: MeshStandardMaterial;
+    LtEafgAVRolQqRw: MeshStandardMaterial;
+    iyDJFXmHelnMTbD: MeshStandardMaterial;
+    eJObPwhgFzvfaoZ: MeshStandardMaterial;
+    nDsMUuDKliqGFdU: MeshStandardMaterial;
+    CRQixVLpahJzhJc: MeshStandardMaterial;
+    YYwBgwvcyZVOOAA: MeshStandardMaterial;
+    SLGkCohDDelqXBu: MeshStandardMaterial;
+    WnHKXHhScfUbJQi: MeshStandardMaterial;
+    fNHiBfcxHUJCahl: MeshStandardMaterial;
+    LpqXZqhaGCeSzdu: MeshStandardMaterial;
+    gMtYExgrEUqPfln: MeshStandardMaterial;
+    PaletteMaterial003: MeshStandardMaterial;
+    JvMFZolVCdpPqjj: MeshStandardMaterial;
+    sfCQkHOWyrsLmor: MeshStandardMaterial;
+    ZCDwChwkbBfITSW: MeshStandardMaterial;
   };
-  animations: THREE.AnimationClip[];
+  animations: AnimationClip[];
 };
 
 export function ModelMacbook(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
-    "/models/macbook-transformed.glb"
+    "/models/macbook-transformed.glb",
   ) as unknown as GLTFResult;
   return (
     <group {...props} dispose={null}>
